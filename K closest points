@@ -1,0 +1,9 @@
+def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+    dis = sqrt((points[0][0]*points[0][0]) + (points[0][1]*points[0][1]))
+    for i, j in enumerate(points):
+        j.append( sqrt((j[0]*j[0]) + (j[1]*j[1])) )
+        print(j)
+    #a = sorted(points, key=itemgetter(2))
+    a1 = [[x[0],x[1]] for x in sorted(points, key=itemgetter(2))]
+    return [a1[x] for x in range(K)]
+                
