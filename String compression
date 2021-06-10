@@ -1,11 +1,15 @@
 class Solution:
     def compress(self, chars: List[str]) -> int:
         import numpy as np
+        chars = ["a","a","a","b","b","a","a"]
         chars = np.array(chars)
         count=1
         compress = ''
+        if len(chars)==1:
+                print("reached here")
+                return 1, [c for c in chars]
         for i in range(len(chars)-1):
-            if chars[i]==chars[i+1]:
+            if chars[i]==chars[i+1] and len(chars)!=1:
                 count=count+1
                 if i==(len(chars)-2):
                     compress = compress+chars[i]
@@ -21,3 +25,5 @@ class Solution:
         
         return len(compress),[compress[i] for i,j in enumerate(compress)]
         #return len(compress), compress
+        
+        
