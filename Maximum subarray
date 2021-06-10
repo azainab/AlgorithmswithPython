@@ -1,3 +1,4 @@
+#time limit exceeded
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         total_max = sum(nums)
