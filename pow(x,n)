@@ -1,0 +1,30 @@
+#Exceeds time limit
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        actual_n = n
+        if x==0 or n==0:
+            return 1
+        elif abs(n)==1:
+            if n==1:
+                return x
+            else:
+                return 1/x
+        else:
+            ans = x*x
+            times = 2
+            n=abs(n)//2
+            while n>1:
+                ans = ans*ans
+                times = times * 2
+                n=abs(n)//2
+            
+            for i in range(abs(actual_n)-times):
+                    ans = ans*x
+            if actual_n>0:
+                return ans
+                print("final ans", ans)
+            else:
+                print(ans)
+                return 1/ans
+                
