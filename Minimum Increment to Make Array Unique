@@ -1,0 +1,11 @@
+class Solution:
+    def minIncrementForUnique(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        nums.sort()
+        s = nums[0]
+        ans = 0
+        for i in nums:
+            ans = ans + max(0, s-i)
+            s = max(s+1, i+1)
+        return ans
