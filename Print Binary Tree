@@ -1,0 +1,29 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def printTree(self, root: TreeNode) -> List[List[str]]:
+        def find_height(node):
+            if not node:
+                return 0
+            left_height = find_height(node.left)
+            right_height = find_height(node.right)
+            return max(left_height, right_height)+1
+        height = find_height(root)
+        col = 2**height - 1
+        matrix = [['' for _ in range(col)] for _ in range(height)]
+        def build_matrix(node, left, right, row):
+            if not node:
+                return 0
+            mid = (left+right)//2
+            print(row)
+            print(mid)
+            matrix[row][mid] = str(node.val)
+            build_matrix(node.left,left,mid-1,row+1)
+            build_matrix(node.right,mid+1,right,row+1) 
+        
+        build_matrix(root, 0, col, 0)
+        return matrix
