@@ -1,29 +1,17 @@
 class Solution:
     def compress(self, chars: List[str]) -> int:
-        import numpy as np
-        chars = ["a","a","a","b","b","a","a"]
-        chars = np.array(chars)
-        count=1
-        compress = ''
-        if len(chars)==1:
-                print("reached here")
-                return 1, [c for c in chars]
-        for i in range(len(chars)-1):
-            if chars[i]==chars[i+1] and len(chars)!=1:
-                count=count+1
-                if i==(len(chars)-2):
-                    compress = compress+chars[i]
-                    compress = compress+str(count)
+        wc = 1
+        start = 0
+        for i, val in enumerate(chars):
+            if i+1 == len(chars) or val!=chars[i+1]:
+                chars[start] = val
+                start+=1
+                if wc>1:
+                    for c in str(wc):
+                        chars[start] = c
+                        start+=1
+                wc = 1
             else:
-                compress = compress+chars[i]
-                compress = compress+str(count)
-                print(compress)
-                count=1
-        import json
-        print(compress)
-        result = []
-        
-        return len(compress),[compress[i] for i,j in enumerate(compress)]
-        #return len(compress), compress
-        
+                wc +=1
+        return start 
         
