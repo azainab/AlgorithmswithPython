@@ -1,0 +1,29 @@
+class Solution(object):
+    def reformatDate(self, date):
+        """
+        :type date: str
+        :rtype: str
+        """
+        parts = date.split()
+        # concept of regular expression re which can be used to search a string
+        # re.search(pattern, string) is a function in the re module that takes a regular expression pattern and a string, and returns a match object if the pattern is found in the string.
+        # (\d{1,2}) is a regular expression pattern that matches one or two digits (from 0 to 9) and captures them in a group. The parentheses () are used to denote the group.
+        # \w is a regular expression pattern that matches any alphanumeric character and underscores.
+        # So the expression searches for one or two digits (\d{1,2}) followed by any alphanumeric character (\w) in the string date, and captures the digits in the first group.
+
+        # The .group(1) method is then called on the resulting match object to extract the first captured group, which corresponds to the digits that were matched by the regular expression pattern.
+
+        # So in summary, the expression re.search('(\d{1,2})\w',date).group(1) searches for the first one or two digits followed by any alphanumeric character in the variable date, and returns the digits as a string.
+
+        d = re.search('(\d{1,2})\w',date).group(1)
+        m = str(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].index(parts[1])+1)
+        y = parts[2]
+        
+        def dd(d):
+            if len(d) == 1:
+                return '0'+d
+            return d
+        
+        return y+'-'+dd(m)+'-'+dd(d)
+
+        
