@@ -1,0 +1,4 @@
+Point 1:
+
+The main difference between xrange() and the built-in range() function in Python 3 is that xrange() returns a generator object that produces each integer on demand, rather than creating a full list of integers in memory. 
+This can save memory in situations where a large range of numbers is being generated.
