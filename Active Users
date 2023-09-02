@@ -1,0 +1,5 @@
+select distinct a.id, (select name from Accounts where id = a.id) as name
+from Logins a, Logins b
+where a.id = b.id and datediff(a.login_date, b.login_date) between 1 and 4
+group by a.id, a.login_date
+having count(distinct b.login_date) = 4
