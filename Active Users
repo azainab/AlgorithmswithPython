@@ -1,5 +1,7 @@
 select distinct a.id, (select name from Accounts where id = a.id) as name
 from Logins a, Logins b
+# basically choose all those cases where the difference is 1 or 2 or 3 or 4 (4 means 5 consecutive days). If we choose only 4 here it will show login gap of 4 days and may not have consecutive logins
 where a.id = b.id and datediff(a.login_date, b.login_date) between 1 and 4
 group by a.id, a.login_date
+# out of the consecutive possiblilites choose the one that says 4 consecutive
 having count(distinct b.login_date) = 4
