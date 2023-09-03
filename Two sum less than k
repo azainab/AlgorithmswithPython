@@ -1,0 +1,18 @@
+class Solution:
+    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+#         Time Complexity: O(nlog⁡n)\mathcal{O}(n\log{n})O(nlogn) to sort the array. The two pointers approach itself is O(n)\mathcal{O}(n)O(n), so the time complexity would be linear if the input is sorted.
+
+# Space Complexity: from O(log⁡n)\mathcal{O}(\log{n})O(logn) to O(n)\mathcal{O}(n)O(n), depending on the implementation of the sorting algorithm.
+        nums.sort()
+        answer = -1
+        left = 0
+        right = len(nums) -1
+        while left < right:
+            sum = nums[left] + nums[right]
+            if sum < k:
+                answer = max(answer, sum)
+                left += 1
+            else:
+                right -= 1
+        return answer
+                
