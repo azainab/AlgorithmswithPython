@@ -1,0 +1,15 @@
+class Solution:
+    def reachingPoints(self, sx: int, sy: int, tx: int, ty: int) -> bool:
+        # This is a great recursive method but it ends up in time limit being exceeded
+        # if sx > tx or sy > ty: return False
+        # if sx == tx and sy == ty: return True
+        # return self.reachingPoints(sx+sy, sy,tx,ty) or self.reachingPoints(sx, sx+sy, tx,ty)
+       
+
+        while True:
+            if sx==tx and sy==ty: return True
+            if tx<=0 or ty<=0: return False
+            if tx<ty:
+                ty -= max(ty//tx - sy//tx , 1)*tx
+            else:
+                tx -= max(tx//ty - sx//ty , 1)*ty
