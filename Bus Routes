@@ -1,0 +1,38 @@
+class Solution:
+    def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
+        # for i in range(len(routes)-1):
+        #     print("i", routes[i])
+        #     for y in range(i+1, len(routes)):
+        #         print(routes[y])
+        
+        graph = defaultdict(set)
+        for i, route in enumerate(routes):
+            for stop in route:
+                graph[stop].add(i)
+
+        print(graph)
+        ans = 0
+
+        queue = collections.deque([source])
+        seen_stop = set()
+        seen_route = set()
+
+        seen_stop.add(S)
+
+        while queue:
+            for _ in range(len(queue)):
+                stop = queue.popleft()
+
+                if stop == target:
+                    return ans
+                
+                for routeId in graph[stop]:
+                    if routeId not in seen_route:
+                        for new_stop in routes[routeId]:
+                            if new_stop not in seen_stop:
+                                queue.append(new_stop)
+                                seen_stop.add(new_stop)
+                        seen_route.add(routeId)
+            ans += 1
+        return -1
+                    
