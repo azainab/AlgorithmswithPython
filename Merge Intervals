@@ -22,4 +22,34 @@ class Solution:
                 i=i+1
                 length = length-1
         return intervals
+
+Solution II
+
+#Complexity Analysis
+
+#Time complexity : O(nlog⁡n)O(n\log{}n)O(nlogn) 
+Other than the sort invocation, we do a simple linear scan of the list, so the runtime is dominated by the O(nlog⁡n)O(n\log{}n)O(nlogn) complexity of sorting.
+
+#Space complexity : O(log⁡N)O(\log N)O(logN) (or O(n)O(n)O(n))
+If we can sort intervals in place, we do not need more than constant additional space, although the sorting itself takes O(log⁡n)O(\log n)O(logn) space. Otherwise, we must allocate linear space to store a copy of intervals and sort that.
+
+
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        intervals.sort(key=lambda x:x[0])
+
+        merged = []
+
+        for interval in intervals:
+            # if the list of merged intervals is empty or if the current interval does not overlap with the previous, simply append it.
+            if not merged or merged[-1][1]<interval[0]:
+                merged.append(interval)
+            # otherwise, there is overlap, so we merge the current and previous intervals.
+            else:
+                merged[-1][1] = max(merged[-1][1], interval[1])
+        return merged
+
+
+
+
         
