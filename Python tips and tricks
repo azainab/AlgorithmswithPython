@@ -18,3 +18,9 @@ last_index = {n:i for i, n in enumerate(num_list)}
 
 input 2736
 {2: 0, 7: 1, 3: 2, 6: 3}
+
+Python 4:
+
+Sort an array based on the length of the values in the array
+
+for word in sorted(words, key=len):
