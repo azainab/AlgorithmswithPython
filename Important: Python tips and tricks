@@ -8,7 +8,7 @@ Point 2:
 Python ord() function returns the Unicode code from a given character
 Example ord(a) = 97
 
-Python 3:
+Point 3:
 
 Generate a value and its index
 
@@ -19,8 +19,12 @@ last_index = {n:i for i, n in enumerate(num_list)}
 input 2736
 {2: 0, 7: 1, 3: 2, 6: 3}
 
-Python 4:
+Point 4:
 
 Sort an array based on the length of the values in the array
 
 for word in sorted(words, key=len):
+
+Point 5:
+
+Backtracking can be defined as a general algorithmic technique that considers searching every possible combination to solve a computational problem. It incrementally builds candidates to the solution and abandons a candidate ("backtracks") when it determines that the candidate cannot lead to the solution.
