@@ -1,6 +1,7 @@
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-    
+        #first start checking for (, if a yes add it to stack, if empty then remove the value belonging
+        # to the index. if both dont satisfy then pop the index, which is the case of ')')
 
         indexes_to_remove = set()
         stack = []
