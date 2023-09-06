@@ -12,7 +12,7 @@ class Solution:
             if r not in can_make:
                 can_make[r] = False
                 if r in recipes_list:
-                    can_make[r] = [dfs(r) for r in recipes_list[r]]
+                    can_make[r] = all([dfs(r) for r in recipes_list[r]])
             return can_make[r]
 
 
