@@ -1,0 +1,19 @@
+class Solution:
+    def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
+        
+        ##I wrote the recipes_list
+        ##practive this problem again and again very interesting problem
+        
+        recipes_list = {recipes[i]:value for i, value in enumerate(ingredients)}
+
+        can_make = {i:True for i in supplies}
+
+        def dfs(r):
+            if r not in can_make:
+                can_make[r] = False
+                if r in recipes_list:
+                    can_make[r] = [dfs(r) for r in recipes_list[r]]
+            return can_make[r]
+
+
+        return [r for r in recipes if dfs(r)]
