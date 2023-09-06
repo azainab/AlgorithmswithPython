@@ -28,3 +28,9 @@ for word in sorted(words, key=len):
 Point 5:
 
 Backtracking can be defined as a general algorithmic technique that considers searching every possible combination to solve a computational problem. It incrementally builds candidates to the solution and abandons a candidate ("backtracks") when it determines that the candidate cannot lead to the solution.
+
+
+Point 6:
+kahn's algorithm:
+reference - https://leetcode.com/explore/learn/card/graph/623/kahns-algorithm-for-topological-sorting/3886/
+taking courses in topological order and the graph is directed. If a loop is formed then it becomes invalid.
