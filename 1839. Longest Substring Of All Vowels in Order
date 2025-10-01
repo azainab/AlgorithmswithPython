@@ -1,0 +1,41 @@
+107 / 121 testcases passed
+
+
+class Solution:
+    def longestBeautifulSubstring(self, word: str) -> int:
+        length = 0
+        finallength = 0
+        prevpos = 0
+        check = []
+        vowels = ['a', 'e', 'i','o', 'u']
+        for char in word:
+            # print ("char", char)
+            if char in ['a', 'e', 'i','o', 'u']:
+                currpos = vowels.index(char)
+                # print("currpos before if", currpos)
+                # print("prevpos before if", prevpos)
+                if (currpos - prevpos in [0, 1]) :
+                    # print("char in the loop", char)
+                    length = length + 1
+                    # print("length", length)
+                    check.append(vowels[prevpos])
+                    # print("check append word[previous]", check)
+                    check.append(char) 
+                    # print("check", check)
+                    # print("unique check", list(dict.fromkeys(check)))
+                elif list(dict.fromkeys(check)) == vowels:
+                    finallength = length
+                    # print("finallength")
+                    return finallength 
+                else:
+                    length = 1
+                    check = []
+                prevpos = currpos
+                # print("prevpos", prevpos)
+        if list(dict.fromkeys(check)) == vowels:
+            finallength = length
+            # print("finallength")
+            return finallength   
+        else:
+            return 0
+        
