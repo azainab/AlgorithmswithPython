@@ -1,0 +1,11 @@
+class Solution:
+    def minTimeToType(self, word: str) -> int:
+        currpos = ord('a')
+        final = 0
+        for char in word:   
+            seconds = min(26 - abs(currpos - ord(char)), abs(currpos - ord(char) ))
+            if seconds >=0:
+                final = final + seconds + 1
+                currpos = ord(char)
+        return final
+        
