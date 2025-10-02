@@ -1,0 +1,24 @@
+# time limit exceeded
+
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        output = []
+        for j in range(len(nums)):
+            total_left = 0
+            # print("j", j)
+            for i in range(j,len(nums)):
+                # print("i", i)
+                total_left = total_left + nums[i]
+                # print("total_left", total_left)
+                # total_right = total_right + nums[len(nums)-i-1]
+                # print("total_right", total_right)
+                if total_left>= target :
+                    output.append(i-j+1)
+                    break
+                    # print("reched here total_left_right", output)
+        if output:
+            return min(output)
+        else:
+            return 0
+
+        
