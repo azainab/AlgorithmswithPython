@@ -1,0 +1,17 @@
+Time Complexity - O(N)
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        result = ''.join([char for char in s if char.isalnum()]).lower()
+        # print(result)
+        # print("len(result)//2", len(result)//2)
+        for i in range(len(result)//2):
+            # print("i", i)
+            # print("result[i]", result[i])
+            # print("result[len(result)-i]", result[len(result)-i-1] )
+            if result[i] == result[len(result)-i-1]:
+                continue
+            else:
+                return False
+        return True
+        
