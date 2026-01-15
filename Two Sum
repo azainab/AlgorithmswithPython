@@ -1,12 +1,10 @@
 class Solution(object):
     def twoSum(self, nums, target):
         """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        dict1 = {i: nums[i] for i in range(len(nums))}
-        for j, value in dict1.items():
-            complement = target - value
-            if complement in dict1.values() and list(dict1.values()).index(complement)!=j:
-                return [j, list(dict1.values()).index(complement)]
+        seen = {}  # num: index mapping
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in seen:
+                return [seen[complement], i]
+            seen[num] = i
+        return []  # No solution (per constraints, won't happen)
