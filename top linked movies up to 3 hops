@@ -1,0 +1,38 @@
+from collections import defaultdict, deque
+from typing import List, Dict
+
+# Model movies as graph nodes; links = shared genre/similarity
+graph: Dict[str, List[str]] = {
+    "Manchester by the Sea": ["Ordinary People", "Aftersun", "The Sweet Hereafter"],
+    "Ordinary People": ["Manchester by the Sea", "Silver Linings Playbook", "What's Eating Gilbert Grape"],
+    "Aftersun": ["Manchester by the Sea", "Oslo August 31st", "Moonlight"],
+    # ... extend with full psych drama graph
+}
+
+def top_linked_movies(start: str, max_hops: int = 3, top_k: int = 3) -> List[str]:
+    """
+    Find top connected movies up to max_hops using BFS.
+    Returns top_k most frequently reached movies by connection count.
+    """
+    visited = set()
+    distances = {}
+    queue = deque([(start, 0)])  # (movie, hop_distance)
+    visited.add(start)
+    distances[start] = 0
+    
+    while queue:
+        movie, hops = queue.popleft()
+        if hops >= max_hops:
+            continue
+        
+        for neighbor in graph[movie]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                distances[neighbor] = hops + 1
+                queue.append((neighbor, hops + 1))
+    
+    # Rank by hop distance (closer first), then alphabetical
+    reached = {m: d for m, d in distances.items() if m != start}
+    sorted_movies = sorted(reached, key=lambda m: (reached[m], m))[:top_k]
+    
+    return sorted_movies
