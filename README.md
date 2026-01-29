@@ -47,10 +47,15 @@ leetcode-python/
 
 
 **🎯 Patterns Learned**
+
 📈 Sliding Window     → Maximum Subarray, Longest Substring
-↔️ Two Pointers       → Valid Palindrome, Container Most Water  
+
+↔️ Two Pointers       → Valid Palindrome, Container Most Water
+
 📊 Dynamic Programming → Longest Palindrome, House Robber
+
 🔍 Binary Search      → Search Insert Position
+
 🌳 Trees/Graphs       → Binary Tree Inorder, Number of Islands
 
 **🧪 Testing**
