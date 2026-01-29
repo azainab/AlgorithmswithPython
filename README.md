@@ -22,20 +22,29 @@ pytest tests/  # Run all tests
 
 **📁 Structure**
 
-leetcode-python/ 
+leetcode-python/
+
 ├── README.md
+
 ├── requirements.txt
+
 ├── solutions/
+
 │   ├── __init__.py
+
 │   ├── 0005_longest_palindrome.py
+
 │   ├── 0238_product_except_self.py
+
 │   └── ... (LC # → filename)
+
 ├── tests/
+
 │   ├── test_0005_longest_palindrome.py
+
 │   └── ...
-└── patterns/
-├── sliding_window.py
-└── dynamic_programming.py
+
+
 
 **🎯 Patterns Learned**
 📈 Sliding Window     → Maximum Subarray, Longest Substring
