@@ -1,5 +1,4 @@
 # AlgorithmswithPython
-My work on using Python to solve algorithm questions
 
 🚀 LeetCode Solutions - Python
 Daily challenges & interview prep 
